@@ -1,0 +1,313 @@
+{
+  "id": "4582a090-f39a-4db1-b79f-70958b862a9a",
+  "version": "2.0",
+  "name": "DemoSelenium",
+  "url": "https://demo-app-fe.vercel.app/",
+  "tests": [{
+    "id": "34277102-7146-406c-ac8a-94d734429130",
+    "name": "Create a reservation",
+    "commands": [{
+      "id": "ceca310e-768c-403f-859a-797d17db3d6d",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7517edb1-6330-4de5-b0e9-9948474e390e",
+      "comment": "Resolution",
+      "command": "setWindowSize",
+      "target": "1936x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e95f2105-60a6-4738-b643-547f7ebaaed8",
+      "comment": "Click on date selector",
+      "command": "click",
+      "target": "css=.rs-picker-toggle-value",
+      "targets": [
+        ["css=.rs-picker-toggle-value", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div/div/a/span", "xpath:idRelative"],
+        ["xpath=//div/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'2022-03-23')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e49ebaaf-5f8f-45fd-9e5a-a811738fdacb",
+      "comment": "Choose today",
+      "command": "click",
+      "target": "xpath=//span[contains(.,'Today')]",
+      "targets": [
+        ["css=.rs-picker-toolbar-option:nth-child(1) > span", "css:finder"],
+        ["xpath=//div/div[2]/div/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Today')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e10d8a4-1575-4d5a-9100-b6c3e7dd012b",
+      "comment": "Click on a train selector",
+      "command": "click",
+      "target": "linkText=Select",
+      "targets": [
+        ["linkText=Select", "linkText"],
+        ["name=trainId", "name"],
+        ["css=.rs-form-group:nth-child(3) .rs-btn", "css:finder"],
+        ["xpath=//a[@name='trainId']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[2]/div/a", "xpath:idRelative"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b4b0851-760c-4412-becf-4edb249e72af",
+      "comment": "Choose a train",
+      "command": "click",
+      "target": "linkText=Sp 9301",
+      "targets": [
+        ["linkText=Sp 9301", "linkText"],
+        ["css=div:nth-child(4) > .rs-picker-select-menu-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Sp 9301')]", "xpath:link"],
+        ["xpath=//div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sp 9301')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6498f77c-60a2-43a7-8943-b2d916478b78",
+      "comment": "Click on a seat selector",
+      "command": "click",
+      "target": "linkText=Select",
+      "targets": [
+        ["linkText=Select", "linkText"],
+        ["name=seatId", "name"],
+        ["css=.rs-form-group:nth-child(4) .rs-btn", "css:finder"],
+        ["xpath=//a[@name='seatId']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f605389-2984-476b-a475-0d00bd4edd3f",
+      "comment": "Choose a seat",
+      "command": "click",
+      "target": "linkText=Coach 1 / Seat 21",
+      "targets": [
+        ["linkText=Coach 1 / Seat 21", "linkText"],
+        ["css=div:nth-child(2) > .rs-picker-select-menu-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Coach 1 / Seat 21')]", "xpath:link"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Coach 1 / Seat 21')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7c047f6-b1b0-4bda-b44c-3efa03a9a28c",
+      "comment": "Click on the name input field",
+      "command": "click",
+      "target": "name=firstName",
+      "targets": [
+        ["name=firstName", "name"],
+        ["css=.rs-form-group:nth-child(5) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='firstName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85763597-5cc7-4d5b-aa62-018af5d5ddc4",
+      "comment": "Type in the name",
+      "command": "type",
+      "target": "name=firstName",
+      "targets": [
+        ["name=firstName", "name"],
+        ["css=.rs-form-group:nth-child(5) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='firstName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "Sony"
+    }, {
+      "id": "f951723a-d614-42ed-82a7-ae7e327ab4e5",
+      "comment": "Click on the surname input field",
+      "command": "click",
+      "target": "name=lastName",
+      "targets": [
+        ["name=lastName", "name"],
+        ["css=.rs-form-group:nth-child(6) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='lastName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97a03c59-9ef6-429a-afcc-9656ba4cdcd2",
+      "comment": "Type in the surname",
+      "command": "type",
+      "target": "name=lastName",
+      "targets": [
+        ["name=lastName", "name"],
+        ["css=.rs-form-group:nth-child(6) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='lastName']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "Pony"
+    }, {
+      "id": "d5e8e750-e60b-4650-9891-b0daee3b22fc",
+      "comment": "Click on the surname email field",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.rs-form-group:nth-child(7) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19344993-b1d2-4d07-b3ee-688d96bd8336",
+      "comment": "Type in the email",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.rs-form-group:nth-child(7) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "sony.pony@gmail.com"
+    }, {
+      "id": "ee0aa459-656c-420e-879c-0cce6d791e37",
+      "comment": "Click on the choose file button",
+      "command": "click",
+      "target": "name=file",
+      "targets": [
+        ["name=file", "name"],
+        ["css=.rs-form-group:nth-child(8) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='file']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05d881a8-954b-483c-85c6-7e8fe33a6de9",
+      "comment": "Type in the path to the selected file",
+      "command": "type",
+      "target": "name=file",
+      "targets": [
+        ["name=file", "name"],
+        ["css=.rs-form-group:nth-child(8) > .rs-input", "css:finder"],
+        ["xpath=//input[@name='file']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\Experiences_of_Test_Automation.bibtex"
+    }, {
+      "id": "98c81080-fb1b-4f1f-a18a-50cfe998aa94",
+      "comment": "Click on the submit button",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'Submit')]",
+      "targets": [
+        ["css=.rs-btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div[2]/form/div[8]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e3d0dc9-9e30-4f06-9c6a-5b8e4384f2f5",
+      "comment": "Assert that the reservation was created successfully",
+      "command": "assertAlert",
+      "target": "Reservation created successfully",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "de16eec4-c69a-40f2-8790-b53a44cb56a1",
+    "name": "Get and cancel the reservation",
+    "commands": [{
+      "id": "75066159-2435-400a-b8f2-8bcbdf47eebf",
+      "comment": "Open the website",
+      "command": "open",
+      "target": "https://demo-app-fe.vercel.app/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83270fac-b975-4bdf-a871-2e6c55995801",
+      "comment": "Click at the \"Get Reservations\" button",
+      "command": "click",
+      "target": "css=.App-reservations-view > button",
+      "targets": [
+        ["css=.App-reservations-view > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Reservations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e5a0c84-7303-4126-b2d1-494a9624203d",
+      "comment": "Get reservations view is successful",
+      "command": "assertAlert",
+      "target": "Get reservations view is successful",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5dfdbeb9-9e02-4d6b-877c-bd3822397273",
+      "comment": "Click the \"Cancel Reservation\" button",
+      "command": "click",
+      "target": "css=tr:nth-child(1) button",
+      "targets": [
+        ["css=tr:nth-child(1) button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/table/tbody/tr/td[7]/button", "xpath:idRelative"],
+        ["xpath=//td[7]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cancel Reservation')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4f29895-2d13-45ff-9a38-7a2e2427f5c9",
+      "comment": "Reservation canceled successfully.",
+      "command": "assertAlert",
+      "target": "Reservation canceled successfully.",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7593ba3-f596-42b1-9bc5-c10da011d3db",
+      "comment": "Click at the \"Get Reservations\" button",
+      "command": "click",
+      "target": "css=.App-reservations-view > button",
+      "targets": [
+        ["css=.App-reservations-view > button", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Reservations')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa6ebcf9-d793-41f5-b985-6e6c3f002217",
+      "comment": "Get reservations view is successful after canceling a reservation",
+      "command": "assertAlert",
+      "target": "Get reservations view is successful",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9980dfc2-347e-4b7a-bbb1-e47fa3c1390b",
+      "comment": "Asert that the status changed to CANCELED",
+      "command": "assertText",
+      "target": "css=.App-reservations-view-table:nth-child(2) > tr:nth-child(1) > .App-reservations-view-table:nth-child(7)",
+      "targets": [],
+      "value": "CANCELED"
+    }]
+  }],
+  "suites": [{
+    "id": "ff779d24-97f1-41ec-92e2-5b7c25c28251",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["34277102-7146-406c-ac8a-94d734429130"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}
