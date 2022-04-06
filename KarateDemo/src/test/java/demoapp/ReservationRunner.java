@@ -9,6 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReservationRunner {
 
+    @Karate.Test
+    Karate testReservation() {
+        return Karate.run("classpath:demoapp/reservation.feature")
+                .karateEnv("e2e");
+    }
+
 
     @Test
     void testParallel() {

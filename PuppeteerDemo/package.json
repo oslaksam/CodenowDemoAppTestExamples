@@ -1,8 +1,11 @@
 {
   "dependencies": {
+    "chai": "^4.3.6",
     "puppeteer": "^13.5.1"
   },
   "devDependencies": {
-    "@faker-js/faker": "^6.1.1"
+    "@faker-js/faker": "^6.1.1",
+    "chai": "*",
+    "mocha": "^9.2.2"
   }
 }

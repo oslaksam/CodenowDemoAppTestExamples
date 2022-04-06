@@ -1,12 +1,7 @@
 package com.seleniumdemo;
 
 import com.github.javafaker.Faker;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +20,7 @@ public class DemoAppTest {
     private Faker faker;
     private final String URL = "https://demo-app-fe.vercel.app/";
 
-    @Before
+    @BeforeEach
     public void setUp() {
         //WebDriverManager.chromedriver().driverVersion("99.0.4844.51").setup();
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -35,7 +30,7 @@ public class DemoAppTest {
         faker = new Faker();
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         driver.quit();
     }
@@ -200,6 +195,7 @@ public class DemoAppTest {
         driver.findElement(By.name("email")).sendKeys("wrongEmail");
         // 15 | type | name=file | C:\fakepath\Experiences_of_Test_Automation.bibtex
         // Type in the path to the selected file
+        // Replace with your random file path
         driver.findElement(By.name("file")).sendKeys("C:\\Users\\oslaksam\\Documents\\CODENOW\\SeleniumDemo\\randomFile.bibtex");
         // 16 | click | xpath=//button[contains(.,'Submit')] |
         // Click on the submit button

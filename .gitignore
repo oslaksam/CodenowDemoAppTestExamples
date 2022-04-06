@@ -164,5 +164,8 @@ log/
 target/
 
 cypress/
-
-sikulixide-2.0.5.jar
+tests-output/
+tests_output/
+screens/
+a.sikuli/
+SikuliDemo/sikulixide-2.0.5.jar

@@ -99,7 +99,7 @@ const url = "https://demo-app-fe.vercel.app/";
   await page.focus(
     ".rs-container > .rs-content > .rs-form > .rs-form-group:nth-child(7) > .rs-input"
   );
-  await page.keyboard.type(faker.internet.email());
+  await page.keyboard.type("fakePuppet");
   await page.waitForSelector(
     ".rs-container > .rs-content > .rs-form > .rs-form-group:nth-child(7) > .rs-input"
   );
@@ -115,17 +115,21 @@ const url = "https://demo-app-fe.vercel.app/";
   await elementHandle.uploadFile(
     "C:\\Users\\oslaksam\\Documents\\CODENOW\\SeleniumDemo\\randomFile.bibtex"
   );
+
   await page.waitForSelector(
     ".rs-content > .rs-form > .rs-form-group > .rs-btn-toolbar > .rs-btn-primary"
   );
   page.on("dialog", async (dialog) => {
     console.log(dialog.message());
-    await expect(dialog.message()).to.equal("Reservation created successfully");
+    await expect(dialog.message()).to.not.equal(
+      "Reservation created successfully"
+    );
     await dialog.accept();
   });
   await page.click(
     ".rs-content > .rs-form > .rs-form-group > .rs-btn-toolbar > .rs-btn-primary"
   );
+
   await browser.close();
   //add an alert check or something brou
 })();
