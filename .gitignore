@@ -163,7 +163,7 @@ allure-results/
 log/
 target/
 
-cypress/
+CypressDemo/
 tests-output/
 tests_output/
 screens/

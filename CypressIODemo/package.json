@@ -1,15 +1,13 @@
 {
   "name": "cypressiodemo",
   "version": "1.0.0",
-  "description": "cypress demo",
-  "main": "index.js",
+  "description": "cypress demo tests",
+  "main": "demoapp.spec.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "cypress",
-    "automation",
-    "testing"
+    "tests"
   ],
   "author": "oslaksam",
   "license": "ISC",
