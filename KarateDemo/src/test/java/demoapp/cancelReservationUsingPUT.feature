@@ -14,7 +14,7 @@ Feature: cancelReservation
     Examples:
       | status | testDataFile                                  |
       | 200    | 'test-data/cancelReservationUsingPUT_200.yml' |
-      | 201    | 'test-data/cancelReservationUsingPUT_201.yml' |
+      | 200    | 'test-data/cancelReservationUsingPUT_201.yml' |
       | 401    | 'test-data/cancelReservationUsingPUT_401.yml' |
       | 403    | 'test-data/cancelReservationUsingPUT_403.yml' |
       | 404    | 'test-data/cancelReservationUsingPUT_404.yml' |

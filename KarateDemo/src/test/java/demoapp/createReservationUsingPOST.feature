@@ -14,7 +14,7 @@ Feature: createReservation
     Examples:
       | status | testDataFile                                   |
       | 200    | 'test-data/createReservationUsingPOST_200.yml' |
-      | 201    | 'test-data/createReservationUsingPOST_201.yml' |
+      | 200    | 'test-data/createReservationUsingPOST_201.yml' |
       | 401    | 'test-data/createReservationUsingPOST_401.yml' |
       | 403    | 'test-data/createReservationUsingPOST_403.yml' |
       | 404    | 'test-data/createReservationUsingPOST_404.yml' |
@@ -22,8 +22,8 @@ Feature: createReservation
 
   @operationId=createReservationUsingPOST
   Scenario: explore createReservationUsingPOST inline
-  You can use this test to quickly explore your API.
-  You can then copy this payload and paste it with Ctrl+Shift+V as an Example row above.
+    You can use this test to quickly explore your API.
+    You can then copy this payload and paste it with Ctrl+Shift+V as an Example row above.
     * def payload =
       """
       {
