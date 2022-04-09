@@ -60,9 +60,86 @@ describe("demo reservation app", () => {
       email
     );
     cy.get(".rs-btn-primary").should("be.visible").click();
+    cy.wait(1001);
     //cy.get(".rs-form").should("be.visible").submit();
     cy.on("window:confirm", (text) => {
       expect(text).to.contains("Reservation created successfully");
     });
+  });
+  it("Tries to create a reservation but fails because of an invalid email", () => {
+    const name = faker.name.firstName();
+    const lastName = faker.name.lastName();
+    const email = "wrongEmailCypress";
+    cy.get(".rs-picker-toggle-value").click();
+    cy.get(".rs-picker-toolbar-option:nth-child(1) > span").click();
+    cy.get("[name='trainId']").click();
+    let val = Math.floor(Math.random() * (4 - 1 + 1) + 1);
+    cy.wait(500);
+    cy.get("div:nth-child(" + val + ") > .rs-picker-select-menu-item").click({
+      multiple: true,
+    });
+    val = Math.floor(Math.random() * (7 - 1 + 1) + 1);
+    cy.wait(500);
+    cy.get("[name='seatId']").click();
+    cy.wait(500);
+    cy.get("div:nth-child(" + val + ") > .rs-picker-select-menu-item").click({
+      multiple: true,
+    });
+    cy.get(".rs-form-group:nth-child(5) > .rs-input")
+      .should("be.visible")
+      .click()
+      .type(name);
+    cy.get(".rs-form-group:nth-child(6) > .rs-input")
+      .should("be.visible")
+      .click()
+      .type(lastName);
+    cy.get(".rs-form-group:nth-child(7) > .rs-input")
+      .should("be.visible")
+      .click()
+      .type(email);
+    const filepath = "example.json";
+    cy.get(".rs-form-group:nth-child(8) > .rs-input").attachFile(filepath);
+    cy.get(".rs-form-group:nth-child(5) > .rs-input").should(
+      "have.value",
+      name
+    );
+    cy.get(".rs-form-group:nth-child(6) > .rs-input").should(
+      "have.value",
+      lastName
+    );
+    cy.get(".rs-form-group:nth-child(7) > .rs-input").should(
+      "have.value",
+      email
+    );
+    cy.get(".rs-btn-primary").should("be.visible").click();
+    cy.wait(1001);
+    //cy.get(".rs-form").should("be.visible").submit();
+    cy.on("window:confirm", (text) => {
+      expect(text).to.not.contains("Reservation created successfully");
+    });
+  });
+  it("Tries to create a reservation but fails because of an invalid email", () => {
+    cy.get(".App-reservations-view > button").should("be.visible").click();
+    cy.on("window:confirm", (text) => {
+      expect(text).to.not.contains("Get reservations view is successful");
+    });
+    cy.get("tr:nth-child(1) button").should("be.visible").click();
+    cy.on("window:confirm", (text) => {
+      expect(text).to.not.contains("Reservation canceled successfully.");
+    });
+    cy.on("window:confirm", (text) => {
+      expect(text).to.not.contains("Get reservations view is successful");
+    });
+    cy.wait(300);
+    cy.get(".App-reservations-view > button").should("be.visible").click();
+    cy.on("window:confirm", (text) => {
+      expect(text).to.not.contains("Get reservations view is successful");
+    });
+    cy.wait(200);
+    cy.get(
+      ".App-reservations-view-table:nth-child(2) > tr:nth-child(1) > .App-reservations-view-table:nth-child(7)"
+    )
+      .invoke("text")
+      .should("contain", "CANCELED");
   });
 });
