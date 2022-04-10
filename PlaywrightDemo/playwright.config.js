@@ -43,6 +43,15 @@ const config = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    // All requests we send go to this API endpoint.
+    baseURL: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com",
+    extraHTTPHeaders: {
+      // We set this header per GitHub guidelines.
+      Accept: "application/json",
+      // Add authorization token to all requests.
+      // Assuming personal access token available in the environment.
+      Authorization: `token ${process.env.API_TOKEN}`,
+    },
   },
 
   /* Configure projects for major browsers */

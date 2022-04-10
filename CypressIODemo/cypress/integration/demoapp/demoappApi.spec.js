@@ -30,33 +30,30 @@ describe("demo reservation app", () => {
   });
   context("POST /reservation", () => {
     it("Should create a reservation", () => {
-      cy.request(
-        {
-          method: "POST",
-          url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com/reservation",
-        },
-        {
+      cy.request({
+        method: "POST",
+        url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com/reservation",
+        body: {
           date: "2022-03-21T02:24:59.815Z",
           email: faker.internet.email(),
           firstName: faker.name.firstName(),
           lastName: faker.name.lastName(),
           seatId: "1-21",
           trainId: "ICE-575",
-        }
-      ).should((response) => {
+        },
+      }).should((response) => {
         expect(response.status).to.eq(200);
-
+        expect(response.body).to.eq("Reservation accepted.");
         cy.log(JSON.stringify(response.body));
       });
     });
     it("Should fail to create a reservation", () => {
-      cy.request(
-        {
-          method: "POST",
-          url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com/reservation",
-        },
-        {}
-      ).should((response) => {
+      cy.request({
+        method: "POST",
+        url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com/reservation",
+        failOnStatusCode: false,
+        body: {},
+      }).should((response) => {
         expect(response.status).to.eq(500);
         cy.log(JSON.stringify(response.body));
       });
@@ -66,9 +63,10 @@ describe("demo reservation app", () => {
     it("Should cancel a reservation", () => {
       cy.request({
         method: "PUT",
-        url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com//reservation/cancel/0",
+        url: "https://demo-app-spring-api-aca-demo.stxcn-aca.stxcn.codenow.com/reservation/cancel/0",
       }).should((response) => {
         expect(response.status).to.eq(200);
+        expect(response.body).to.eq("Cancel reservation request accepted.");
         cy.log(JSON.stringify(response.body));
       });
     });
