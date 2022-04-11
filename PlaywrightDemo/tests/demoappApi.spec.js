@@ -1,4 +1,5 @@
 const { faker } = require("@faker-js/faker");
+const { test, expect } = require("@playwright/test");
 
 test("Create a new reservation", async ({ request }) => {
   const newIssue = await request.post(`/reservation`, {
@@ -12,7 +13,7 @@ test("Create a new reservation", async ({ request }) => {
     },
   });
   expect(newIssue.ok()).toBeTruthy();
-
+  expect(await newIssue.text()).toEqual("Reservation accepted.");
   const badIssue = await request.post(`/reservation`, {
     data: {},
   });
@@ -22,19 +23,11 @@ test("Create a new reservation", async ({ request }) => {
 test("Get reservations", async ({ request }) => {
   const issues = await request.get(`/reservation`);
   expect(issues.ok()).toBeTruthy();
-  expect(await issues.json()).toContainEqual(
-    expect.objectContaining({
-      body: "id",
-    })
-  );
+  expect(await issues.text()).toContain("id");
 });
 
 test("Cancel reservations", async ({ request }) => {
-  const issues = await request.get(`/reservation/cancel/0`);
+  const issues = await request.put(`/reservation/cancel/0`);
   expect(issues.ok()).toBeTruthy();
-  expect(await issues.json()).toContainEqual(
-    expect.objectContaining({
-      body: "id",
-    })
-  );
+  expect(await issues.text()).toEqual("Cancel reservation request accepted.");
 });
