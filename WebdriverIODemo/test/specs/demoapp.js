@@ -1,6 +1,6 @@
 const { faker } = require("@faker-js/faker");
 
-describe("Demo aplikace", () => {
+describe("Demo application", () => {
   it("Should create a reservation.", async () => {
     await browser.url("https://demo-app-fe.vercel.app/");
     await expect(browser).toHaveUrl("https://demo-app-fe.vercel.app/");
