@@ -1,3 +1,7 @@
+# To install all packages in the package.json
+```javascript  
+npm install
+```
 # Run all tests
 ```javascript  
 npx wdio wdio.conf.js

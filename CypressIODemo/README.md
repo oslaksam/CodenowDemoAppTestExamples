@@ -1,3 +1,7 @@
+# To install all packages in the package.json
+```javascript  
+npm install
+```
 # install cypress using npm
 ```javascript
 npm install cypress --save-dev

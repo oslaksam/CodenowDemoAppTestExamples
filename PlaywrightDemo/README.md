@@ -1,3 +1,7 @@
+# To install all packages in the package.json
+```javascript  
+npm install
+```
 # Run from your project's root directory
 ```javascript  
 npm init playwright@latest
