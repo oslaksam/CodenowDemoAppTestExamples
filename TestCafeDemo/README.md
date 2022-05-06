@@ -1,3 +1,7 @@
+# To install all packages in the package.json
+```javascript  
+npm install
+```
 # Install TestCafe
 ```javascript
 npm install --save-dev testcafe

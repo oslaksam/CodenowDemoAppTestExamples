@@ -17,7 +17,6 @@ describe("Demo application", () => {
     await $('[name="lastName"]').setValue(faker.name.lastName());
     await $('[name="email"]').click();
     await $('[name="email"]').setValue(faker.internet.email());
-    await //$('[name="file"]').click();
     await $('[name="file"]').setValue(
       "C:\\Users\\oslaksam\\Documents\\CODENOW\\SeleniumDemo\\randomFile.bibtex"
     );
@@ -44,7 +43,6 @@ describe("Demo application", () => {
     await $('[name="lastName"]').setValue(faker.name.lastName());
     await $('[name="email"]').click();
     await $('[name="email"]').setValue("wrongEmailWebdriverIO");
-    //await $('[name="file"]').click();
     await $('[name="file"]').setValue(
       "C:\\Users\\oslaksam\\Documents\\CODENOW\\SeleniumDemo\\randomFile.bibtex"
     );
@@ -62,25 +60,23 @@ describe("Demo application", () => {
     await expect(browser).toHaveUrl("https://demo-app-fe.vercel.app/");
     await expect(browser).toHaveTitle("React App");
     $("//div[@id='root']/div/div[2]/div/button").click();
-    // assertAlert
     await browser.pause(750);
     let msg = await browser.getAlertText();
     await console.log(msg);
     await expect(msg).toBe("Get reservations view is successful");
     await browser.acceptAlert();
     $("//div[@id='root']/div/div[2]/div/table/tbody/tr/td[7]/button").click();
-    // assertAlert
     await browser.pause(750);
     msg = await browser.getAlertText();
     await console.log(msg);
     await expect(msg).toBe("Reservation canceled successfully.");
     await browser.acceptAlert();
-    // assertAlert
     await browser.pause(500);
     msg = await browser.getAlertText();
     await console.log(msg);
     await expect(msg).toBe("Get reservations view is successful");
     await browser.acceptAlert();
-    $("//div[@id='root']/div/div[2]/div/table/tbody/tr/td[7]").click();
+    const elem = $("//div[@id='root']/div/div[2]/div/table/tbody/tr/td[7]");
+    await expect(elem).toHaveTextContaining("CANCELED");
   });
 });
